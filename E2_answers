@@ -1,0 +1,1 @@
+SELECT bar FROM Serves WHERE (beer = 'Amstel' OR beer = 'Corona') AND price > 2;
