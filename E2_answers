@@ -1,1 +1,16 @@
 SELECT bar FROM Serves WHERE (beer = 'Amstel' OR beer = 'Corona') AND price > 2;
+
+
+SELECT d.name
+FROM drinker d
+WHERE d.name NOT IN (
+    SELECT l.drinker
+    FROM likes l
+    WHERE l.beer = 'Corona'
+)
+AND d.name IN (
+    SELECT f.drinker
+    FROM frequents f
+    JOIN serves s ON f.bar = s.bar
+    WHERE s.beer = 'Corona'
+);
