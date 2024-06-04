@@ -14,3 +14,9 @@ AND d.name IN (
     JOIN serves s ON f.bar = s.bar
     WHERE s.beer = 'Corona'
 );
+
+
+SELECT bar
+FROM serves
+GROUP BY bar
+HAVING COUNT(DISTINCT beer) >= 5;
